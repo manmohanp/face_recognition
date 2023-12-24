@@ -8,4 +8,6 @@ Face Recongnition using python - https://face-recognition.readthedocs.io/en/late
 
 get started
 
-pip install -r requirements.txt
+>> pip install -r requirements.txt
+
+>> python3 facedetect.txt
