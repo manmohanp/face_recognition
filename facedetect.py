@@ -83,11 +83,17 @@ while(True):
         bottom *= 4
         left *= 4
 
-        # Draw a box around the face
-        cv2.rectangle(frame, (left, top), (right, bottom), (51, 255, 51), 2)
-
-        # Draw a label with a name below the face
-        cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (51, 255, 51), cv2.FILLED)
+        if face_distances[best_match_index] > 0.55:
+            # Draw a box around the face
+            cv2.rectangle(frame, (left, top), (right, bottom), (100, 255, 255), 2)
+            # Draw a label with a name below the face
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (100, 255, 255), cv2.FILLED)
+        else:
+            # Draw a box around the face
+            cv2.rectangle(frame, (left, top), (right, bottom), (51, 255, 51), 2)
+            # Draw a label with a name below the face
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (51, 255, 51), cv2.FILLED)
+        
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (0, 0, 0), 1)
 
